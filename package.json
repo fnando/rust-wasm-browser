@@ -1,0 +1,7 @@
+{
+  "name": "rust-wasm-browser",
+  "private": true,
+  "dependencies": {
+    "esbuild": "*"
+  }
+}

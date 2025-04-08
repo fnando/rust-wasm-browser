@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e
+
+rm -rf pkg
+rm -f example/bundle.js
+
+wasm-pack build --target web
+
+cp pkg/*.wasm example/
+
+npx esbuild example/index.mjs \
+  --bundle \
+  --outfile=example/bundle.js \
+  --loader:.wasm=file \
+  --format=esm \
+  --platform=browser
+
+echo "Build completed successfully!"
